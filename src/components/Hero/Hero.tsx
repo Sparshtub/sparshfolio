@@ -36,13 +36,13 @@ export default function Hero() {
         </div>
 
         <h1 className={styles.title}>
-          Designing Digital
-          <span className={`gradient-text ${styles.block}`}>Experiences</span>
-          with Precision & Code
+          Building Scalable
+          <span className={`gradient-text ${styles.block}`}>Web Solutions</span>
+          with Modern Tech
         </h1>
 
         <p className={styles.subtitle}>
-          I'm Alex Rivers, a creative full stack software engineer specializing in building high-performance, visually gorgeous web applications that blend modern design with flawless execution.
+          I'm Sparsh Jain, a Software Development Engineer specializing in building fast, scalable, and responsive web applications using Next.js, React.js, TypeScript, and Tailwind CSS.
         </p>
 
         <div className={styles.ctas}>

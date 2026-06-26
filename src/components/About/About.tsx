@@ -17,9 +17,9 @@ type SkillCategories = {
 const SKILL_CATEGORIES: SkillCategories = {
   frontend: [
     {
-      name: "React / Next.js",
+      name: "React.js / Next.js",
       level: 95,
-      desc: "App Router, SSR, Server Actions, context state, custom hooks",
+      desc: "High-performance applications, SSR, App Router, state management",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
           <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)" />
@@ -30,9 +30,9 @@ const SKILL_CATEGORIES: SkillCategories = {
       ),
     },
     {
-      name: "TypeScript",
+      name: "TypeScript / JavaScript",
       level: 90,
-      desc: "Strict type safety, generics, utility types, system design",
+      desc: "Robust, type-safe development and modular software architecture",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -43,9 +43,9 @@ const SKILL_CATEGORIES: SkillCategories = {
       ),
     },
     {
-      name: "CSS Modules / Vanilla CSS",
-      level: 88,
-      desc: "Responsive design, Flexbox, CSS Grid, keyframes, transitions, variables",
+      name: "Tailwind CSS / HTML5 / CSS3",
+      level: 92,
+      desc: "Responsive web designs, modern styling, and fluid layouts",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -57,9 +57,9 @@ const SKILL_CATEGORIES: SkillCategories = {
   ],
   backend: [
     {
-      name: "Node.js / Express",
-      level: 88,
-      desc: "RESTful APIs, middleware, file streaming, authentication models",
+      name: "Node.js / Express.js",
+      level: 85,
+      desc: "REST APIs, backend logic, routing, middleware integration",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -67,9 +67,9 @@ const SKILL_CATEGORIES: SkillCategories = {
       ),
     },
     {
-      name: "Databases (SQL & NoSQL)",
-      level: 85,
-      desc: "PostgreSQL, MongoDB, query optimization, schemas, Prisma ORM",
+      name: "MongoDB / MySQL",
+      level: 82,
+      desc: "Data modeling, schema design, and query optimization",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
           <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -81,9 +81,9 @@ const SKILL_CATEGORIES: SkillCategories = {
   ],
   tools: [
     {
-      name: "Git & GitHub",
+      name: "Git / GitHub / Postman",
       level: 90,
-      desc: "Advanced branch management, merge conflict resolution, CI/CD integrations",
+      desc: "Version control, workflow automation, API testing",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
           <circle cx="18" cy="18" r="3" />
@@ -95,12 +95,12 @@ const SKILL_CATEGORIES: SkillCategories = {
       ),
     },
     {
-      name: "Docker & Cloud Services",
-      level: 78,
-      desc: "Containerizing services, AWS (S3, EC2), Vercel deployments",
+      name: "Python / C++",
+      level: 80,
+      desc: "Data structures, algorithms, and scripting",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.skillIcon}>
-          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
         </svg>
       ),
     },
@@ -109,16 +109,16 @@ const SKILL_CATEGORIES: SkillCategories = {
 
 const TIMELINE = [
   {
-    role: "Senior Full Stack Engineer",
-    company: "PixelCraft Studios",
-    period: "2024 - Present",
-    desc: "Led development of high-traffic Next.js apps, integrated cloud microservices, and reduced client loading speeds by 40% with clean architecture and route optimization.",
+    role: "Software Development Engineer (SDE)",
+    company: "Nighwan Technology",
+    period: "Nov 2025 - Present",
+    desc: "Contributed to full-stack web development projects using React.js, Next.js, and Tailwind CSS. Built responsive user interfaces, integrated backend APIs, participated in code reviews, and optimized Vercel deployments to achieve top performance and SEO rankings.",
   },
   {
-    role: "Full Stack Developer",
-    company: "Nexus Digital",
-    period: "2022 - 2024",
-    desc: "Built custom interactive features for client e-commerce stores using Node.js and React. Collaborated closely with design team to maintain flawless visual identity.",
+    role: "B-Tech in Computer Science and Engineering",
+    company: "AKGEC Ghaziabad",
+    period: "2021 - 2025",
+    desc: "Completed B-Tech degree in Computer Science and Engineering with an academic record of 8.5/10 SGPA.",
   },
 ];
 
@@ -144,10 +144,10 @@ export default function About() {
             <div className={styles.bioCard}>
               <h3 className={styles.bioTitle}>My Story</h3>
               <p className={styles.bioText}>
-                I'm a self-driven software engineer who loves the intersection of software architecture and visual design. I bridge the gap between back-end infrastructure robustness and front-end interface polish.
+                I'm Sparsh Jain, a Software Development Engineer at Nighwan Tech. I specialize in building fast, scalable, and responsive web applications using Next.js, React.js, TypeScript, and Tailwind CSS.
               </p>
               <p className={styles.bioText}>
-                Over the past 5 years, I've designed interactive experiences for startups and agencies, maintaining high code quality and strict performance standards. I enjoy pushing limits with modern web frameworks.
+                I am highly experienced in crafting modern UI components, optimizing performance, and delivering production-quality features. I'm passionate about clean code, SEO-optimized web development, and creating smooth user experiences across devices.
               </p>
             </div>
 

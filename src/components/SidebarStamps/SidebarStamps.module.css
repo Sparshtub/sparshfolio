@@ -1,0 +1,69 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  background: #000000;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #1a1a1a;
+}
+
+.left {
+  left: 0;
+  border-right: 1px solid #1a1a1a;
+}
+
+.right {
+  right: 0;
+  border-left: 1px solid #1a1a1a;
+}
+
+.stampTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: center;
+  padding: 40px 0;
+  animation: scrollStamps 60s linear infinite;
+  height: max-content;
+}
+
+.stampWrapper {
+  color: #ff523b; /* Red-Orange retro stamp color */
+  opacity: 0.65;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.stampWrapper:hover {
+  transform: rotate(5deg) scale(1.1);
+  opacity: 0.95;
+  color: #ff3b20;
+}
+
+.stampSvg {
+  width: 50px;
+  height: 50px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes scrollStamps {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%); /* Scroll through half the repeated list for infinite look */
+  }
+}
+
+/* Hide sidebars on smaller screens to maximize horizontal reading space */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}

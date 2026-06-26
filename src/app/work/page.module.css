@@ -1,0 +1,262 @@
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 40px auto 100px auto;
+  padding: 0 24px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+  gap: 20px;
+}
+
+.stampWrapper {
+  color: var(--red-stamp);
+  width: 100px;
+  height: 100px;
+}
+
+.stampSvg {
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pageTitle {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Main work panel split screen */
+.workPanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Left: Interactive Tag Container */
+.tagContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  perspective: 1000px;
+}
+
+.clothingTag {
+  background: #fcfbf9;
+  color: #111111;
+  width: 320px;
+  border-radius: 4px;
+  border: 1px solid #d4d0c8;
+  padding: 40px 24px 24px 24px;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.clothingTag:hover {
+  transform: rotate(2deg) translateY(4px);
+}
+
+/* Tag string loop thread */
+.tagString {
+  position: absolute;
+  top: -55px;
+  width: 60px;
+  height: 60px;
+  color: #ff523b;
+  opacity: 0.85;
+}
+
+.tagStringPath {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+
+.tagHole {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #000000;
+  border: 4px solid #c8c4bc;
+  position: absolute;
+  top: 15px;
+}
+
+/* Stitched border along edge of tag */
+.stitchedBorder {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  border: 1px dashed #bbb;
+  pointer-events: none;
+}
+
+/* Washing Care symbols */
+.careSymbols {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  color: #444444;
+}
+
+.careSymbolSvg {
+  width: 24px;
+  height: 24px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tagContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.tagTitle {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.tagCategory {
+  font-family: var(--font-handwriting);
+  font-size: 16px;
+  color: var(--red-stamp);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.tagDivider {
+  width: 100%;
+  height: 1px;
+  background: #e2e0db;
+  margin: 16px 0;
+}
+
+.tagDesc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 20px;
+}
+
+.tagTechList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.tagTech {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: #f0ede8;
+  color: #555555;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.tagActions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.tagActionBtn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #111111;
+  font-family: var(--font-handwriting);
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  text-align: center;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.tagActionBtn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* Retro barcode stamp */
+.barcode {
+  width: 100%;
+  height: 30px;
+  margin-top: 24px;
+  opacity: 0.55;
+  color: #111111;
+}
+
+/* Right: List of Projects */
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listHeader {
+  font-family: var(--font-handwriting);
+  font-size: 16px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.projectItem {
+  font-family: var(--font-handwriting);
+  font-size: 32px;
+  font-weight: 500;
+  color: #888888;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+}
+
+.projectItem:hover, .projectActive {
+  color: var(--red-stamp);
+  transform: translateX(10px);
+}
+
+.projectArrow {
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectItem:hover .projectArrow, .projectActive .projectArrow {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .workPanel {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

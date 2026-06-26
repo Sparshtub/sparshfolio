@@ -1,140 +1,143 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 
-const NAV_ITEMS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
-
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const [isConnectOpen, setIsConnectOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
-      // Detect active section on scroll
-      const sections = NAV_ITEMS.map(item => item.href.slice(1));
-      let currentSection = "home";
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          // If section is near the top of the viewport
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            currentSection = section;
-            break;
-          }
-        }
-      }
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call once on mount
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
-
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const toggleConnect = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false);
-    
-    const targetId = href.slice(1);
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offset = 80; // height of fixed navbar
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
+    setIsConnectOpen((prev) => !prev);
   };
 
   return (
-    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.container}>
-        <a href="#home" className={styles.logo} onClick={(e) => handleLinkClick(e, "#home")}>
-          <span className="gradient-text-cyan">Alex</span>
-          <span className={styles.logoDot}>.</span>
-        </a>
-
-        {/* Desktop Navigation */}
-        <div className={styles.navLinks}>
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => handleLinkClick(e, item.href)}
-              className={`${styles.navLink} ${
-                activeSection === item.href.slice(1) ? styles.active : ""
-              }`}
-            >
-              {item.label}
-              {activeSection === item.href.slice(1) && (
-                <span className={styles.indicator} />
-              )}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={(e) => handleLinkClick(e, "#contact")}
-            className={styles.ctaButton}
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        {/* Navigation list */}
+        <div className={styles.navList}>
+          {/* Smiley Icon / Initial */}
+          <Link 
+            href="/" 
+            className={styles.smileLink}
+            onMouseEnter={() => setHoveredItem("smile")}
+            onMouseLeave={() => setHoveredItem(null)}
           >
-            Let's Talk
-          </a>
-        </div>
+            <span className={styles.smileFace}>
+              {hoveredItem === "smile" ? "(*^‿^*)" : ":)"}
+            </span>
+          </Link>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className={`${styles.mobileToggle} ${isMobileMenuOpen ? styles.open : ""}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle Navigation Menu"
-        >
-          <span className={styles.hamburgerLine}></span>
-          <span className={styles.hamburgerLine}></span>
-          <span className={styles.hamburgerLine}></span>
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileOpen : ""}`}>
-          <div className={styles.mobileLinks}>
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleLinkClick(e, item.href)}
-                className={`${styles.mobileNavLink} ${
-                  activeSection === item.href.slice(1) ? styles.mobileActive : ""
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={(e) => handleLinkClick(e, "#contact")}
-              className={styles.mobileCtaButton}
+          {/* About link */}
+          <div className={styles.navItemWrapper}>
+            {/* Hover face doodle */}
+            <div className={`${styles.doodleWrapper} ${hoveredItem === "about" ? styles.doodleVisible : ""}`}>
+              <svg viewBox="0 0 40 40" className={styles.doodleSvg}>
+                <circle cx="20" cy="22" r="10" fill="none" stroke="currentColor" strokeWidth="2" />
+                {/* Hair */}
+                <path d="M12 16l3-5 5 2 5-2 3 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                {/* Eyes */}
+                <circle cx="16" cy="22" r="1" fill="currentColor" />
+                <circle cx="24" cy="22" r="1" fill="currentColor" />
+                {/* Mouth */}
+                <path d="M17 26q3 2 6 0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+            <Link
+              href="/"
+              className={`${styles.navLink} ${pathname === "/" ? styles.active : ""}`}
+              onMouseEnter={() => setHoveredItem("about")}
+              onMouseLeave={() => setHoveredItem(null)}
             >
-              Let's Talk
+              about
+            </Link>
+          </div>
+
+          {/* Work link */}
+          <div className={styles.navItemWrapper}>
+            {/* Hover underline scribble doodle */}
+            <div className={`${styles.doodleWrapper} ${hoveredItem === "work" ? styles.doodleVisible : ""}`}>
+              <svg viewBox="0 0 40 15" className={styles.underlineSvg}>
+                <path d="M2 8c10-2 20-3 36-1c-15 0-25 1-34 3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+            <Link
+              href="/work"
+              className={`${styles.navLink} ${pathname === "/work" ? styles.active : ""}`}
+              onMouseEnter={() => setHoveredItem("work")}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              work
+            </Link>
+          </div>
+
+          {/* Connect dropdown link */}
+          <div className={styles.navItemWrapper}>
+            <a
+              href="#connect"
+              onClick={toggleConnect}
+              className={`${styles.navLink} ${isConnectOpen ? styles.active : ""}`}
+              onMouseEnter={() => setHoveredItem("connect")}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              Connect
             </a>
+
+            {/* Connect dropdown list */}
+            <div className={`${styles.connectDropdown} ${isConnectOpen ? styles.dropdownOpen : ""}`}>
+              {/* LinkedIn */}
+              <a
+                href="https://linkedin.com/in/basedsparsh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.dropdownLink}
+                title="LinkedIn"
+              >
+                <svg viewBox="0 0 40 40" className={styles.socialSvg}>
+                  <rect x="5" y="5" width="30" height="30" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <text x="14" y="26" fontSize="16" fontWeight="bold" fontFamily="var(--font-handwriting)">in</text>
+                  {/* Scribble ring around button */}
+                  <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" className={styles.scribbleRing} />
+                </svg>
+              </a>
+
+              {/* GitHub */}
+              <a
+                href="https://github.com/Sparshtub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.dropdownLink}
+                title="GitHub"
+              >
+                <svg viewBox="0 0 40 40" className={styles.socialSvg}>
+                  {/* Cat face doodle */}
+                  <path d="M12 25c0 5 4 8 8 8s8-3 8-8c0-2-1-4-2-5 0 0 1-2 0-4 0 0-2 0-4 2-1 0-3 0-4 0-2-2-4-2-4-2-1 2 0 4 0 4-1 1-2 3-2 5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                  <circle cx="17" cy="23" r="1" fill="currentColor" />
+                  <circle cx="23" cy="23" r="1" fill="currentColor" />
+                  <path d="M18 26q2 1.5 4 0" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:basedsparshjain@gmail.com"
+                className={styles.dropdownLink}
+                title="Email"
+              >
+                <svg viewBox="0 0 40 40" className={styles.socialSvg}>
+                  <rect x="5" y="8" width="30" height="24" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <path d="M5 8l15 11L35 8" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 3" className={styles.scribbleRing} />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

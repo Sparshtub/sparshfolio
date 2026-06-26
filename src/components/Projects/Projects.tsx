@@ -20,21 +20,39 @@ type Project = {
 
 const PROJECTS_DATA: Project[] = [
   {
+    id: "nighwantech",
+    title: "Nighwan Tech Corporate Portal",
+    category: "frontend",
+    categoryLabel: "Frontend",
+    shortDesc: "A high-performance corporate portal built with Next.js, TypeScript, and Tailwind CSS.",
+    longDesc: "A modern corporate website designed and built for Nighwan Technology. Features dynamic, reusable components, interactive product showcases, optimized asset loading, and full search engine optimization with metadata, Open Graph tags, sitemaps, and robots.txt setup.",
+    image: "/images/dashboard.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "SEO Optimization"],
+    demoUrl: "https://github.com/Sparshtub/portfolio",
+    codeUrl: "https://github.com/Sparshtub/portfolio",
+    features: [
+      "Fully responsive corporate portal layout across devices",
+      "Complete SEO optimization including dynamic sitemaps, Open Graph metadata, and robots.txt",
+      "Reusable and high-performance UI component architecture",
+      "Smooth animations and interactive product showcase sections"
+    ]
+  },
+  {
     id: "dashboard",
     title: "Apex Analytics Dashboard",
     category: "fullstack",
     categoryLabel: "Full Stack",
-    shortDesc: "A real-time high-performance metrics dashboard with glassmorphic visuals.",
-    longDesc: "Apex Analytics is a enterprise-scale dashboard providing real-time data streaming and analysis. Built to handle heavy metric pipelines, it aggregates API usages and active user metrics into smooth, interactive canvas charts. It has full multi-tenant workspace separation and user permission models.",
-    image: "/images/dashboard.png",
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Recharts"],
-    demoUrl: "https://example.com",
-    codeUrl: "https://github.com",
+    shortDesc: "A real-time metrics dashboard aggregating API logs and usage statistics.",
+    longDesc: "Apex Analytics is a metrics dashboard built with Next.js, Node.js, and MongoDB. It aggregates user statistics and API logs into interactive charts and supports multi-tenant workspaces with OAuth2 authentication.",
+    image: "/images/plants.png",
+    tech: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    demoUrl: "https://github.com/Sparshtub/portfolio",
+    codeUrl: "https://github.com/Sparshtub/portfolio",
     features: [
-      "Real-time WebSocket connection to metric pipelines",
-      "Dynamic dashboard layout editing and state persistence",
-      "Highly responsive charts built with SVG and Canvas elements",
-      "OAuth2 authentication with GitHub, Google, and Magic Links"
+      "Real-time analytical graphs using Canvas and Recharts",
+      "Robust backend APIs built with Express.js and Node.js",
+      "OAuth2 authentication and session management",
+      "Secure data storage and schema design in MongoDB"
     ]
   },
   {
@@ -42,35 +60,17 @@ const PROJECTS_DATA: Project[] = [
     title: "VrikshVatika Plant E-Store",
     category: "frontend",
     categoryLabel: "Frontend",
-    shortDesc: "A luxury plant e-commerce experience highlighting sleek transitions and filters.",
-    longDesc: "VrikshVatika is a concept luxury shop for exotic plants. It emphasizes visual storytelling, custom page-reveal transition states, micro-interactions for adding items to the cart, and high-performance product sorting using client-side indexing.",
-    image: "/images/plants.png",
-    tech: ["React", "CSS Modules", "Context API", "Framer Motion"],
-    demoUrl: "https://example.com",
-    codeUrl: "https://github.com",
-    features: [
-      "Fluid page-reveal animations and loading states",
-      "Client-side search and faceted sorting by genus, light requirement, and size",
-      "Highly accessible semantic HTML structure and ARIA labels",
-      "Sleek drawer-based cart layout with instant status feedback"
-    ]
-  },
-  {
-    id: "crypto",
-    title: "Nova Crypto Portfolio Tracker",
-    category: "design",
-    categoryLabel: "UI/UX Design",
-    shortDesc: "A futuristic trading and portfolio mockup utilizing sleek neon glass structures.",
-    longDesc: "Nova is a highly futuristic crypto asset management portal. It showcases neon-accented dark aesthetics, complex layout designs, custom icons, and visual mockups built with advanced CSS glow styles and backdrop filter parameters.",
+    shortDesc: "A luxury plant e-commerce shop emphasizing micro-interactions and transitions.",
+    longDesc: "VrikshVatika is a plant e-commerce shop emphasizing visual storytelling, micro-interactions, responsive design styled with Tailwind CSS, and fast search filtering using client-side indexing.",
     image: "/images/crypto.png",
-    tech: ["Figma", "Next.js", "CSS variables", "SVG animations"],
-    demoUrl: "https://example.com",
-    codeUrl: "https://github.com",
+    tech: ["React.js", "Tailwind CSS", "Context API", "Framer Motion"],
+    demoUrl: "https://github.com/Sparshtub/portfolio",
+    codeUrl: "https://github.com/Sparshtub/portfolio",
     features: [
-      "Neo-cyberpunk layout styling with rich visual hierarchy",
-      "Custom-crafted vector assets and glow indicators for trend tracking",
-      "Optimized layout that maintains visual ratio across arbitrary screen widths",
-      "Interactive dark/neon mode toggles showcasing micro-animations"
+      "Smooth page transitions and hover animations",
+      "Client-side search and faceted sorting by categories",
+      "Responsive design styled with Tailwind CSS utility classes",
+      "Interactive cart drawers with status feedback"
     ]
   }
 ];

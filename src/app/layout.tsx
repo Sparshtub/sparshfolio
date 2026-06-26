@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, EB_Garamond, Caveat } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
+import SidebarStamps from "@/components/SidebarStamps/SidebarStamps";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,14 +15,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const ebGaramond = EB_Garamond({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const caveat = Caveat({
+  variable: "--font-handwriting",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Alex Rivers | Creative Full Stack Developer",
-  description: "Portfolio of Alex Rivers, showcasing high-performance web applications, interactive UI designs, and digital experiences.",
-  keywords: ["Full Stack Developer", "Software Engineer", "React", "Next.js", "TypeScript", "UI/UX Portfolio"],
-  authors: [{ name: "Alex Rivers" }],
+  title: "Sparsh Jain | Software Development Engineer",
+  description: "Portfolio of Sparsh Jain, Software Development Engineer specializing in fast, scalable, and responsive web applications using Next.js, React.js, TypeScript, and Tailwind CSS.",
+  keywords: ["Software Development Engineer", "SDE", "React", "Next.js", "TypeScript", "Tailwind CSS", "Nighwan Technology", "Portfolio", "Sparsh Jain"],
+  authors: [{ name: "Sparsh Jain" }],
   openGraph: {
-    title: "Alex Rivers | Creative Full Stack Developer",
-    description: "Portfolio of Alex Rivers, showcasing high-performance web applications, interactive UI designs, and digital experiences.",
+    title: "Sparsh Jain | Software Development Engineer",
+    description: "Portfolio of Sparsh Jain, Software Development Engineer specializing in fast, scalable, and responsive web applications using Next.js, React.js, TypeScript, and Tailwind CSS.",
     type: "website",
   },
 };
@@ -30,9 +45,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
-        {children}
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${ebGaramond.variable} ${caveat.variable}`}>
+      <body className="app-body">
+        <SidebarStamps side="left" />
+        <SidebarStamps side="right" />
+        <div className="layout-content">
+          <Navbar />
+          <main className="main-content">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
