@@ -333,6 +333,9 @@
   .projectArrow {
     display: none; /* Hide indicators on tabs */
   }
+  .clothingTag {
+    animation: mobileCardSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @media (max-width: 480px) {
@@ -342,5 +345,17 @@
   .clothingTag {
     width: 100%;
     padding: 30px 16px 20px 16px;
+    animation: mobileCardSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes mobileCardSlide {
+  from {
+    transform: translateX(32px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
