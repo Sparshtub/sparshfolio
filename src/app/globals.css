@@ -23,30 +23,30 @@
 
 html[data-theme="chalk"] {
   --bg-primary: #080808;
-  --bg-paper: #1c1c1c; /* Chalkboard board background */
-  --grid-line: rgba(255, 255, 255, 0.03);
-  --red-stamp: #ff6e5a; /* Brighter chalk coral */
+  --bg-paper: #181818; /* Chalkboard board background */
+  --grid-line: rgba(255, 255, 255, 0.025);
+  --red-stamp: #ff8570; /* Glowing pastel chalk coral */
   
-  --text-dark: #f0f0f0;
-  --text-body: #cccccc;
-  --text-muted: #999999;
+  --text-dark: #ffffff;  /* Pure white chalk titles */
+  --text-body: #f3f3f3;  /* Bright off-white chalkboard writing */
+  --text-muted: #c5c5c5; /* Clear muted grey chalk */
   --text-light: #ffffff;
-  --border-card: rgba(255, 255, 255, 0.15);
-  --text-btn: #121212;
+  --border-card: rgba(255, 255, 255, 0.18);
+  --text-btn: #181818;
 }
 
 html[data-theme="blueprint"] {
-  --bg-primary: #020a14;
-  --bg-paper: #082142; /* Blueprint sheet background */
+  --bg-primary: #010812;
+  --bg-paper: #05162e; /* Blueprint sheet background */
   --grid-line: rgba(255, 255, 255, 0.08);
-  --red-stamp: #00e5ff; /* Blueprint cyan line */
+  --red-stamp: #3df2ff; /* Extremely readable neon cyan line */
   
-  --text-dark: #ffffff;
-  --text-body: #d2e4f7;
-  --text-muted: #8caecf;
+  --text-dark: #ffffff;  /* Clean drafting white */
+  --text-body: #f0f7ff;  /* Crisp white-blue text */
+  --text-muted: #b0d4fa; /* Soft bright steel blue */
   --text-light: #ffffff;
-  --border-card: rgba(255, 255, 255, 0.2);
-  --text-btn: #020c1a;
+  --border-card: rgba(255, 255, 255, 0.22);
+  --text-btn: #020a15;
 }
 
 * {
