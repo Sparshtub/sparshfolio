@@ -139,8 +139,8 @@ a {
 
 /* Selection Override */
 ::selection {
-  background: rgba(255, 82, 59, 0.2);
-  color: #ff523b;
+  background: var(--red-stamp);
+  color: var(--bg-paper);
 }
 
 /* Scrollbar Customization */

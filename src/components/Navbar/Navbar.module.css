@@ -21,7 +21,7 @@
 }
 
 .logoLink {
-  color: #ff523b;
+  color: var(--red-stamp);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@
 
 .logoHovered {
   transform: scale(1.12) rotate(-3deg);
-  filter: drop-shadow(0 2px 8px rgba(255, 82, 59, 0.3));
+  filter: drop-shadow(0 2px 8px var(--red-stamp));
 }
 
 .monitorFrame, .monitorScreen, .monitorStand {
@@ -75,7 +75,7 @@
 }
 
 .navLink:hover, .navLink.active {
-  color: #ff523b;
+  color: var(--red-stamp);
 }
 
 /* Doodle hover indicators container */
@@ -89,7 +89,7 @@
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
               transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  color: #ff523b;
+  color: var(--red-stamp);
 }
 
 .doodleVisible {
@@ -109,7 +109,7 @@
   top: 32px;
   left: 50%;
   transform: translateX(-50%);
-  color: #ff523b;
+  color: var(--red-stamp);
 }
 
 /* Connect Dropdown list overlay */
@@ -142,7 +142,7 @@
 }
 
 .dropdownLink:hover {
-  color: #ff523b;
+  color: var(--red-stamp);
   transform: scale(1.15) rotate(3deg);
 }
 
