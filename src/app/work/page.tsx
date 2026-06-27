@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import styles from "./page.module.css";
 
 type Project = {
@@ -52,9 +53,20 @@ const PROJECTS: Project[] = [
   }
 ];
 
-export default function Work() {
+function WorkContent() {
   const [activeIdx, setActiveIdx] = useState(0);
   const activeProject = PROJECTS[activeIdx];
+  const searchParams = useSearchParams();
+  const projectParam = searchParams.get("project");
+
+  useEffect(() => {
+    if (projectParam) {
+      const matchedIdx = PROJECTS.findIndex(p => p.id === projectParam);
+      if (matchedIdx !== -1) {
+        setActiveIdx(matchedIdx);
+      }
+    }
+  }, [projectParam]);
 
   return (
     <div className={styles.container}>
@@ -201,5 +213,25 @@ export default function Work() {
 
       </div>
     </div>
+  );
+}
+
+export default function Work() {
+  return (
+    <Suspense fallback={
+      <div style={{ 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center", 
+        minHeight: "50vh",
+        color: "var(--red-stamp)",
+        fontFamily: "var(--font-handwriting)",
+        fontSize: "24px"
+      }}>
+        Loading project space...
+      </div>
+    }>
+      <WorkContent />
+    </Suspense>
   );
 }

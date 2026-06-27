@@ -1,13 +1,97 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./Navbar.module.css";
+
+const SEARCH_ITEMS = [
+  // Pages
+  { id: "about", type: "page", label: "About / Home", url: "/", desc: "Bio details, educational history, timeline and technical skills." },
+  { id: "work", type: "page", label: "Work & Projects", url: "/work", desc: "Showcase of notable projects with interactive features." },
+  { id: "connect", type: "page", label: "Connect / Contact", url: "/connect", desc: "Get in touch, direct contact channels, feedback forms." },
+  
+  // Projects
+  { id: "nighwan", type: "project", label: "Nighwan Tech Corporate Portal", url: "/work?project=nighwan", desc: "Corporate page built with Next.js, SEO, and reusable components." },
+  { id: "gatirath", type: "project", label: "Gatirath Cab & Bus Rentals", url: "/work?project=gatirath", desc: "Cab & bus travel bookings portal with custom trips." },
+  { id: "weather", type: "project", label: "Open-Meteo Weather Dashboard", url: "/work?project=weather", desc: "Interactive trends dashboard with Recharts." },
+  { id: "plants", type: "project", label: "VrikshVatika Plant E-Store", url: "/work?project=plants", desc: "Plant store concept with micro-interactions." },
+
+  // Skills
+  { id: "react", type: "skill", label: "React.js", url: "/", desc: "Core skills under Frontend development." },
+  { id: "next", type: "skill", label: "Next.js", url: "/", desc: "Server rendering, static routes, and backend serverless." },
+  { id: "ts", type: "skill", label: "TypeScript", url: "/", desc: "Type safety, interfaces, and backend integration." },
+  { id: "tailwind", type: "skill", label: "Tailwind CSS", url: "/", desc: "Utility-first modern grids styling." },
+  { id: "node", type: "skill", label: "Node.js & Express", url: "/", desc: "Server side APIs development." },
+  { id: "smtp", type: "skill", label: "SMTP & API route", url: "/", desc: "Nodemailer validation APIs and contacts submissions." },
+  { id: "mongo", type: "skill", label: "MongoDB & Databases", url: "/", desc: "Schema designs and local database setups." }
+];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const router = useRouter();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const handleGlobalKeys = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setIsSearchOpen(prev => !prev);
+        setSearchQuery("");
+        setSelectedIdx(0);
+      } else if (e.key === "Escape" && isSearchOpen) {
+        e.preventDefault();
+        setIsSearchOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKeys);
+    return () => window.removeEventListener("keydown", handleGlobalKeys);
+  }, [isSearchOpen]);
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 50);
+    }
+  }, [isSearchOpen]);
+
+  useEffect(() => {
+    setSelectedIdx(0);
+  }, [searchQuery]);
+
+  const filteredItems = searchQuery.trim() === ""
+    ? SEARCH_ITEMS.slice(0, 3)
+    : SEARCH_ITEMS.filter(item => 
+        item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.type.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+  const handleSelect = (item: typeof SEARCH_ITEMS[0]) => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+    router.push(item.url);
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (filteredItems.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSelectedIdx(prev => (prev + 1) % filteredItems.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSelectedIdx(prev => (prev - 1 + filteredItems.length) % filteredItems.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      handleSelect(filteredItems[selectedIdx]);
+    }
+  };
 
   return (
     <header className={styles.header}>
@@ -122,8 +206,101 @@ export default function Navbar() {
               connect
             </Link>
           </div>
+
+          {/* Search link */}
+          <div className={styles.navItemWrapper}>
+            {/* Hover search magnifying glass doodle */}
+            <div className={`${styles.doodleWrapper} ${hoveredItem === "search" ? styles.doodleVisible : ""}`}>
+              <svg viewBox="0 0 40 40" className={styles.doodleSvg}>
+                <circle cx="18" cy="18" r="6" fill="none" stroke="currentColor" strokeWidth="2" />
+                <line x1="22" y1="22" x2="30" y2="30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+            <button
+              onClick={() => {
+                setIsSearchOpen(true);
+                setSearchQuery("");
+                setSelectedIdx(0);
+              }}
+              className={`${styles.navLink} ${styles.searchBtn}`}
+              onMouseEnter={() => setHoveredItem("search")}
+              onMouseLeave={() => setHoveredItem(null)}
+              aria-label="Search"
+            >
+              search
+            </button>
+          </div>
         </div>
       </nav>
+
+      {/* Search Modal Overlay */}
+      {isSearchOpen && (
+        <div className={styles.modalBackdrop} onClick={() => setIsSearchOpen(false)}>
+          <div className={styles.modalCard} onClick={e => e.stopPropagation()}>
+            {/* Search Input Box */}
+            <div className={styles.searchHeader}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.searchBarIcon}>
+                <circle cx="11" cy="11" r="7" strokeLinecap="round" />
+                <line x1="16" y1="16" x2="21" y2="21" strokeLinecap="round" />
+              </svg>
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Search projects, skills, pages..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                onKeyDown={handleInputKeyDown}
+                className={styles.searchInput}
+              />
+              <button className={styles.closeBtn} onClick={() => setIsSearchOpen(false)} aria-label="Close search">
+                ✕
+              </button>
+            </div>
+
+            {/* Results List */}
+            <div className={styles.resultsList}>
+              {searchQuery.trim() === "" && (
+                <div className={styles.sectionHeader}>Quick Links</div>
+              )}
+              {filteredItems.length > 0 ? (
+                filteredItems.map((item, idx) => {
+                  let icon = "📄";
+                  if (item.type === "project") icon = "💼";
+                  if (item.type === "skill") icon = "🛠️";
+                  
+                  return (
+                    <div
+                      key={item.id}
+                      className={`${styles.resultItem} ${idx === selectedIdx ? styles.resultActive : ""}`}
+                      onClick={() => handleSelect(item)}
+                      onMouseEnter={() => setSelectedIdx(idx)}
+                    >
+                      <span className={styles.resultIcon}>{icon}</span>
+                      <div className={styles.resultDetails}>
+                        <div className={styles.resultLabel}>
+                          {item.label}
+                          <span className={styles.resultType}>{item.type}</span>
+                        </div>
+                        <div className={styles.resultDesc}>{item.desc}</div>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className={styles.noResults}>
+                  <p>No matches found for "{searchQuery}"</p>
+                  <span>Try searching for "Next.js", "Gatirath", or "connect".</span>
+                </div>
+              )}
+            </div>
+
+            {/* Help instructions footer */}
+            <div className={styles.searchFooter}>
+              <span>Press <strong>esc</strong> to close, <strong>↑↓</strong> to navigate, <strong>enter</strong> to select.</span>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
