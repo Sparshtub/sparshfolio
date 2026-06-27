@@ -94,26 +94,35 @@ export default function Connect() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
 
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoUrl = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Open mailto link
-    window.location.href = mailtoUrl;
+      const result = await response.json();
 
-    setTimeout(() => {
+      if (response.ok) {
+        setFormData({ name: "", email: "", message: "" });
+        triggerToast(result.message || "Message submitted successfully!");
+      } else {
+        triggerToast(result.error || "Failed to submit message.");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      triggerToast("An error occurred. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
-      triggerToast("Opening your email client to send message...");
-    }, 800);
+    }
   };
 
   return (
