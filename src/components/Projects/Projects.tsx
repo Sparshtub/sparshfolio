@@ -28,7 +28,7 @@ const PROJECTS_DATA: Project[] = [
     longDesc: "A modern corporate website designed and built for Nighwan Technology. Features dynamic, reusable components, interactive product showcases, optimized asset loading, and full search engine optimization with metadata, Open Graph tags, sitemaps, and robots.txt setup.",
     image: "/images/dashboard.png",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "SEO Optimization"],
-    demoUrl: "https://github.com/Sparshtub/portfolio",
+    demoUrl: "https://nighwantech.vercel.app/",
     codeUrl: "https://github.com/Sparshtub/portfolio",
     features: [
       "Fully responsive corporate portal layout across devices",
@@ -38,21 +38,39 @@ const PROJECTS_DATA: Project[] = [
     ]
   },
   {
-    id: "dashboard",
-    title: "Apex Analytics Dashboard",
+    id: "gatirath",
+    title: "Gatirath Cab & Bus Rentals",
     category: "fullstack",
     categoryLabel: "Full Stack",
-    shortDesc: "A real-time metrics dashboard aggregating API logs and usage statistics.",
-    longDesc: "Apex Analytics is a metrics dashboard built with Next.js, Node.js, and MongoDB. It aggregates user statistics and API logs into interactive charts and supports multi-tenant workspaces with OAuth2 authentication.",
-    image: "/images/plants.png",
-    tech: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    demoUrl: "https://github.com/Sparshtub/portfolio",
+    shortDesc: "A premium online vehicle booking portal for one-way, round trip, local and airport transfers.",
+    longDesc: "Gatirath is a high-performance vehicle rental and booking platform built with Next.js and Tailwind CSS. It supports comprehensive ride options (One Way, Round Trip, Local, Airport transfers) and custom travel planning packages for corporate events, weddings, and yatras.",
+    image: "/images/gatirath.png",
+    tech: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    demoUrl: "https://gatirath-vert.vercel.app/",
     codeUrl: "https://github.com/Sparshtub/portfolio",
     features: [
-      "Real-time analytical graphs using Canvas and Recharts",
-      "Robust backend APIs built with Express.js and Node.js",
-      "OAuth2 authentication and session management",
-      "Secure data storage and schema design in MongoDB"
+      "Flexible ride-booking wizard supporting multiple trip types (One Way, Round Trip, Local, Airport)",
+      "Integrated tour & travel packages for holidays and spiritual yatras",
+      "Dedicated solutions for wedding events, bus rentals, and corporate travel mobility",
+      "Clean, modern interface with responsive forms optimized for conversion and speed"
+    ]
+  },
+  {
+    id: "weather",
+    title: "Open-Meteo Weather Dashboard",
+    category: "frontend",
+    categoryLabel: "Frontend",
+    shortDesc: "An interactive dashboard visualizing real-time weather conditions, air quality indexes, and historical trends.",
+    longDesc: "An interactive weather dashboard built with React and Vite that integrates the Open-Meteo API. It visualizes current/hourly weather metrics and air quality indexes, and supports date-range selections to analyze up to two years of historical weather trends through scrollable charts with brush-based zoom controls.",
+    image: "/images/weather.png",
+    tech: ["React.js", "Vite", "Recharts", "Open-Meteo API", "Vercel"],
+    demoUrl: "https://weather-dashboard-six-silk.vercel.app/",
+    codeUrl: "https://github.com/Sparshtub/Weather-Dashboard",
+    features: [
+      "Real-time weather parameters and comprehensive air quality indicators",
+      "Interactive hourly trend charts with horizontal scrolling and brush-based zoom",
+      "Historical data page to analyze up to 2 years of past weather metrics",
+      "Seamless units selection and responsive design optimized for speed"
     ]
   },
   {

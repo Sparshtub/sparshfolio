@@ -20,17 +20,26 @@ const PROJECTS: Project[] = [
     category: "Frontend Dev",
     desc: "A high-performance corporate portal built with Next.js, TypeScript, and Tailwind CSS. Features dynamic reusable components, sitemaps, Open Graph metadata, Vercel deployments, and SEO optimizations.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Vercel", "SEO"],
-    demoUrl: "https://github.com/Sparshtub/portfolio",
+    demoUrl: "https://nighwantech.vercel.app/",
     codeUrl: "https://github.com/Sparshtub/portfolio"
   },
   {
-    id: "dashboard",
-    title: "Apex Analytics Dashboard",
+    id: "gatirath",
+    title: "Gatirath Cab & Bus Rentals",
     category: "Full Stack Dev",
-    desc: "A real-time metrics dashboard aggregating user statistics and API logs. Integrates Express.js endpoints with MongoDB storage and renders analytics using custom SVG/Canvas charts.",
-    tech: ["Next.js", "Express.js", "Node.js", "MongoDB"],
-    demoUrl: "https://github.com/Sparshtub/portfolio",
+    desc: "A premium vehicle rental and tour booking platform built with Next.js and Tailwind CSS. Supports advanced trip forms, custom tour packages, and corporate/event travel solutions.",
+    tech: ["Next.js", "Tailwind CSS", "React.js", "Vercel"],
+    demoUrl: "https://gatirath-vert.vercel.app/",
     codeUrl: "https://github.com/Sparshtub/portfolio"
+  },
+  {
+    id: "weather",
+    title: "Open-Meteo Weather Dashboard",
+    category: "Frontend Dev",
+    desc: "An interactive weather dashboard querying Open-Meteo API for current, hourly and historical metrics. Features interactive trend charts built with Recharts, horizontal scrolling, and custom brush-zoom selections.",
+    tech: ["React.js", "Vite", "Recharts", "Open-Meteo API", "Vercel"],
+    demoUrl: "https://weather-dashboard-six-silk.vercel.app/",
+    codeUrl: "https://github.com/Sparshtub/Weather-Dashboard"
   },
   {
     id: "plants",
@@ -84,7 +93,7 @@ export default function Work() {
             </svg>
           </div>
 
-          <div className={styles.clothingTag}>
+          <div className={styles.clothingTag} key={activeIdx}>
             {/* Hole */}
             <div className={styles.tagHole} />
             {/* Stitched line */}

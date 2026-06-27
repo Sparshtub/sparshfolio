@@ -100,7 +100,7 @@ export default function Home() {
                     <span className={styles.itemSubtitle}>AKGEC Ghaziabad</span>
                   </div>
                   <p className={styles.itemDesc}>
-                    Graduated with an academic record of 8.5 / 10 SGPA. Focused on software structures, algorithms, and web technologies.
+                    Graduated with an academic record of 7.07 / 10 SGPA. Focused on software structures, algorithms, and web technologies.
                   </p>
                 </div>
               </div>

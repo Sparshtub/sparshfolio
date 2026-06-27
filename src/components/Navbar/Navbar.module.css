@@ -20,25 +20,41 @@
   position: relative;
 }
 
-.smileLink {
-  font-family: var(--font-handwriting);
-  font-size: 24px;
+.logoLink {
   color: #ff523b;
-  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  text-align: center;
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.smileFace {
-  display: inline-block;
-  transition: transform 0.2s ease;
+.logoSvg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.smileLink:hover .smileFace {
-  transform: scale(1.1) rotate(-5deg);
+.logoHovered {
+  transform: scale(1.12) rotate(-3deg);
+  filter: drop-shadow(0 2px 8px rgba(255, 82, 59, 0.3));
+}
+
+.monitorFrame, .monitorScreen, .monitorStand {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+.terminalCursor {
+  animation: cursorFlash 1s steps(2, start) infinite;
+}
+
+@keyframes cursorFlash {
+  to {
+    visibility: hidden;
+  }
 }
 
 .navItemWrapper {

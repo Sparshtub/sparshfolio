@@ -118,7 +118,7 @@ const TIMELINE = [
     role: "B-Tech in Computer Science and Engineering",
     company: "AKGEC Ghaziabad",
     period: "2021 - 2025",
-    desc: "Completed B-Tech degree in Computer Science and Engineering with an academic record of 8.5/10 SGPA.",
+    desc: "Completed B-Tech degree in Computer Science and Engineering with an academic record of 7.07/10 SGPA.",
   },
 ];
 

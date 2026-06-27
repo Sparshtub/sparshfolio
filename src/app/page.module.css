@@ -128,6 +128,27 @@
   flex-direction: column;
   gap: 8px;
   position: relative;
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.timelineItem:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.timelineItem:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .period {
@@ -202,6 +223,8 @@
   padding: 4px 10px;
   border-radius: 12px;
   transition: all 0.2s ease;
+  opacity: 0;
+  animation: fadeInTag 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 .skillTag:hover {
@@ -209,6 +232,33 @@
   color: #ffffff;
   border-color: var(--red-stamp);
   transform: translateY(-2px);
+}
+
+.skillCategory:nth-child(1) .skillTag:nth-child(1) { animation-delay: 0.4s; }
+.skillCategory:nth-child(1) .skillTag:nth-child(2) { animation-delay: 0.45s; }
+.skillCategory:nth-child(1) .skillTag:nth-child(3) { animation-delay: 0.5s; }
+.skillCategory:nth-child(1) .skillTag:nth-child(4) { animation-delay: 0.55s; }
+.skillCategory:nth-child(1) .skillTag:nth-child(5) { animation-delay: 0.6s; }
+
+.skillCategory:nth-child(2) .skillTag:nth-child(1) { animation-delay: 0.6s; }
+.skillCategory:nth-child(2) .skillTag:nth-child(2) { animation-delay: 0.65s; }
+.skillCategory:nth-child(2) .skillTag:nth-child(3) { animation-delay: 0.7s; }
+.skillCategory:nth-child(2) .skillTag:nth-child(4) { animation-delay: 0.75s; }
+
+.skillCategory:nth-child(3) .skillTag:nth-child(1) { animation-delay: 0.7s; }
+.skillCategory:nth-child(3) .skillTag:nth-child(2) { animation-delay: 0.75s; }
+.skillCategory:nth-child(3) .skillTag:nth-child(3) { animation-delay: 0.8s; }
+.skillCategory:nth-child(3) .skillTag:nth-child(4) { animation-delay: 0.85s; }
+
+@keyframes fadeInTag {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {

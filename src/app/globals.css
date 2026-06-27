@@ -89,6 +89,20 @@ a {
   padding: 40px;
   position: relative;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: sheetDrop 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+@keyframes sheetDrop {
+  0% {
+    transform: translateY(20px) rotate(-0.5deg);
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
 }
 
 /* Selection Override */

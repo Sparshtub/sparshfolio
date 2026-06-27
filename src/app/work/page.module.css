@@ -64,10 +64,28 @@
   align-items: center;
   transform-origin: top center;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: tagSwingEntrance 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .clothingTag:hover {
   transform: rotate(2deg) translateY(4px);
+}
+
+@keyframes tagSwingEntrance {
+  0% {
+    transform: rotate(-10deg) translateY(-20px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(5deg) translateY(5px);
+  }
+  75% {
+    transform: rotate(-2deg) translateY(-2px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Tag string loop thread */
