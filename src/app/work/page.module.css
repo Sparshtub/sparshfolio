@@ -290,24 +290,54 @@
   }
   .workPanel {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
+  }
+  .tagContainer {
+    grid-row: 2; /* Move featured details card to second row */
+  }
+  .projectList {
+    grid-row: 1; /* Move projects selector list to first row (top) */
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 4px 4px 10px 4px;
+    width: 100%;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .projectList::-webkit-scrollbar {
+    display: none;
+  }
+  .listHeader {
+    display: none; /* Hide vertical list header on mobile */
   }
   .projectItem {
-    font-size: 24px;
-    width: 100%;
-    white-space: normal;
+    font-size: 14px;
+    padding: 8px 16px;
+    background: #fcfbf9;
+    border: 1px solid #dcdad5;
+    border-radius: 4px;
+    color: #444444;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    transform: none !important;
+    width: auto;
+    flex-shrink: 0;
+  }
+  .projectItem:hover, .projectActive {
+    background: var(--red-stamp);
+    color: #ffffff !important;
+    border-color: var(--red-stamp);
   }
   .projectArrow {
-    font-size: 18px;
+    display: none; /* Hide indicators on tabs */
   }
 }
 
 @media (max-width: 480px) {
   .pageTitle {
     font-size: 22px;
-  }
-  .projectItem {
-    font-size: 20px;
   }
   .clothingTag {
     width: 100%;
