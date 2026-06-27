@@ -168,3 +168,33 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 30px 16px 20px 16px;
+  }
+  .navList {
+    gap: 20px;
+  }
+  .logoLink {
+    width: 44px;
+    height: 44px;
+  }
+  .navLink {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navList {
+    gap: 12px;
+  }
+  .logoLink {
+    width: 40px;
+    height: 40px;
+  }
+  .navLink {
+    font-size: 16px;
+    padding: 2px 4px;
+  }
+}

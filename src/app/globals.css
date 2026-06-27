@@ -127,3 +127,9 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--red-stamp);
 }
+
+@media (max-width: 768px) {
+  .graph-sheet {
+    padding: 24px 16px;
+  }
+}

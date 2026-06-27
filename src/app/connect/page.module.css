@@ -64,8 +64,50 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    margin: 20px auto 60px auto;
+    padding: 0 16px;
+  }
+  .introSection {
+    margin-top: 20px;
+    gap: 30px;
+  }
+  .headerBlock {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .mailboxDoodle {
+    display: none;
+  }
+  .signature {
+    font-size: 38px;
+    margin-bottom: 6px;
+  }
+  .role {
+    font-size: 20px;
+  }
   .sectionsGrid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .infoCard, .formCard {
+    padding: 20px;
+  }
+  .infoTitle, .formTitle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signature {
+    font-size: 32px;
+  }
+  .role {
+    font-size: 18px;
+  }
+  .detailText {
+    font-size: 13px;
   }
 }
 
