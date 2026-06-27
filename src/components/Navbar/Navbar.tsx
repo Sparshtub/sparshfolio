@@ -35,6 +35,22 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIdx, setSelectedIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [theme, setTheme] = useState<"graph" | "chalk" | "blueprint">("graph");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme") as any;
+    if (savedTheme && ["graph", "chalk", "blueprint"].includes(savedTheme)) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+  }, []);
+
+  const cycleTheme = () => {
+    const nextTheme = theme === "graph" ? "chalk" : theme === "chalk" ? "blueprint" : "graph";
+    setTheme(nextTheme);
+    localStorage.setItem("portfolio-theme", nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+  };
 
   useEffect(() => {
     const handleGlobalKeys = (e: KeyboardEvent) => {
@@ -228,6 +244,28 @@ export default function Navbar() {
               aria-label="Search"
             >
               search
+            </button>
+          </div>
+
+          {/* Theme link */}
+          <div className={styles.navItemWrapper}>
+            {/* Hover paint palette doodle */}
+            <div className={`${styles.doodleWrapper} ${hoveredItem === "theme" ? styles.doodleVisible : ""}`}>
+              <svg viewBox="0 0 40 40" className={styles.doodleSvg}>
+                <path d="M20 10c-5.5 0-10 4.5-10 10s4.5 10 10 10c1.5 0 2.5-1 2.5-2.5 0-.7-.3-1.3-.7-1.8-.4-.5-.7-1.1-.7-1.7 0-1.5 1.2-2.5 2.5-2.5H26c4.5 0 8-3.5 8-8 0-6.5-6.3-11-14-11z" fill="none" stroke="currentColor" strokeWidth="2"/>
+                <circle cx="16" cy="16" r="2" fill="currentColor"/>
+                <circle cx="20" cy="14" r="2" fill="currentColor"/>
+                <circle cx="26" cy="16" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <button
+              onClick={cycleTheme}
+              className={`${styles.navLink} ${styles.themeBtn}`}
+              onMouseEnter={() => setHoveredItem("theme")}
+              onMouseLeave={() => setHoveredItem(null)}
+              aria-label={`Cycle theme: current ${theme}`}
+            >
+              {theme}
             </button>
           </div>
         </div>

@@ -172,7 +172,7 @@ export default function Connect() {
                   </div>
                   <button className={styles.copyBtn} aria-label="Copy Email Address">
                     {isCopied ? (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#ff523b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.copyBtnIcon}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-stamp)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.copyBtnIcon}>
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     ) : (
@@ -318,7 +318,7 @@ export default function Connect() {
       {/* Floating Toast Notification */}
       <div className={`${styles.toast} ${showToast ? styles.toastShow : ""}`}>
         <div className={styles.toastContent}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#ff523b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={styles.toastIcon}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-stamp)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={styles.toastIcon}>
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 8 12 12 16 14" />
           </svg>

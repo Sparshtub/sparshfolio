@@ -200,7 +200,7 @@
 }
 
 /* Universal Search Button & Modal Palette */
-.searchBtn {
+.searchBtn, .themeBtn {
   background: transparent;
   border: none;
   cursor: pointer;

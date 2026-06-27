@@ -39,14 +39,14 @@
   font-family: var(--font-serif);
   font-size: 24px;
   font-weight: 500;
-  color: #555555;
+  color: var(--text-muted);
   letter-spacing: 0.5px;
 }
 
 .noodleDoodle {
   width: 90px;
   height: 90px;
-  color: #222222;
+  color: var(--text-dark);
   opacity: 0.85;
 }
 
@@ -82,7 +82,7 @@
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.8;
-  color: #444444;
+  color: var(--text-body);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -167,13 +167,13 @@
   font-family: var(--font-serif);
   font-size: 20px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text-dark);
 }
 
 .itemSubtitle {
   font-family: var(--font-sans);
   font-size: 15px;
-  color: #555555;
+  color: var(--text-muted);
   font-weight: 600;
   margin-top: 4px;
 }
@@ -182,7 +182,7 @@
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.6;
-  color: #555555;
+  color: var(--text-muted);
   margin-top: 8px;
 }
 
@@ -216,8 +216,8 @@
 
 .skillTag {
   background: transparent;
-  border: 1px solid #dcdad5;
-  color: #444444;
+  border: 1px solid var(--border-card);
+  color: var(--text-body);
   font-family: var(--font-sans);
   font-size: 13px;
   padding: 4px 10px;

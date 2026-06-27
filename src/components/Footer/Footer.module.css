@@ -13,8 +13,8 @@
 /* Infinite marquee scroll track container */
 .scrollRibbon {
   width: 100vw;
-  background: #ff523b; /* Red-Orange background */
-  color: #000000;
+  background: var(--red-stamp); /* Red-Orange background */
+  color: var(--bg-primary);
   font-family: var(--font-handwriting);
   font-weight: 700;
   font-size: 16px;
@@ -58,7 +58,7 @@
 .copyright {
   font-family: var(--font-sans);
   font-size: 13px;
-  color: #444444;
+  color: var(--text-muted);
 }
 
 .scrollTop {
@@ -71,7 +71,7 @@
 }
 
 .scrollTop:hover {
-  color: #ff523b;
+  color: var(--red-stamp);
 }
 
 .arrowSvg {

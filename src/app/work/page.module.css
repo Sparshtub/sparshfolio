@@ -51,11 +51,11 @@
 }
 
 .clothingTag {
-  background: #fcfbf9;
-  color: #111111;
+  background: var(--bg-paper);
+  color: var(--text-dark);
   width: 320px;
   border-radius: 4px;
-  border: 1px solid #d4d0c8;
+  border: 1px solid var(--border-card);
   padding: 40px 24px 24px 24px;
   position: relative;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -94,7 +94,7 @@
   top: -55px;
   width: 60px;
   height: 60px;
-  color: #ff523b;
+  color: var(--red-stamp);
   opacity: 0.85;
 }
 
@@ -107,7 +107,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #000000;
+  background: var(--bg-primary);
   border: 4px solid #c8c4bc;
   position: absolute;
   top: 15px;
@@ -129,7 +129,7 @@
   display: flex;
   gap: 12px;
   margin-top: 15px;
-  color: #444444;
+  color: var(--text-body);
 }
 
 .careSymbolSvg {
@@ -152,7 +152,7 @@
   font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text-dark);
 }
 
 .tagCategory {
@@ -166,7 +166,7 @@
 .tagDivider {
   width: 100%;
   height: 1px;
-  background: #e2e0db;
+  background: var(--border-card);
   margin: 16px 0;
 }
 
@@ -174,7 +174,7 @@
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.6;
-  color: #444444;
+  color: var(--text-body);
   margin-bottom: 20px;
 }
 
@@ -189,8 +189,8 @@
 .tagTech {
   font-family: var(--font-mono);
   font-size: 11px;
-  background: #f0ede8;
-  color: #555555;
+  background: var(--bg-primary);
+  color: var(--text-muted);
   padding: 2px 8px;
   border-radius: 2px;
 }
@@ -204,19 +204,19 @@
 .tagActionBtn {
   flex: 1;
   padding: 10px;
-  border: 1px solid #111111;
+  border: 1px solid var(--text-dark);
   font-family: var(--font-handwriting);
   font-size: 16px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text-dark);
   text-align: center;
   background: transparent;
   transition: all 0.2s ease;
 }
 
 .tagActionBtn:hover {
-  background: #111111;
-  color: #ffffff;
+  background: var(--text-dark);
+  color: var(--bg-paper);
 }
 
 /* Retro barcode stamp */
@@ -225,7 +225,7 @@
   height: 30px;
   margin-top: 24px;
   opacity: 0.55;
-  color: #111111;
+  color: var(--text-dark);
 }
 
 /* Right: List of Projects */
@@ -315,10 +315,10 @@
   .projectItem {
     font-size: 14px;
     padding: 8px 16px;
-    background: #fcfbf9;
-    border: 1px solid #dcdad5;
+    background: var(--bg-paper);
+    border: 1px solid var(--border-card);
     border-radius: 4px;
-    color: #444444;
+    color: var(--text-body);
     font-weight: 600;
     transition: all 0.2s ease;
     transform: none !important;
@@ -327,7 +327,7 @@
   }
   .projectItem:hover, .projectActive {
     background: var(--red-stamp);
-    color: #ffffff !important;
+    color: var(--text-btn) !important;
     border-color: var(--red-stamp);
   }
   .projectArrow {

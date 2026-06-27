@@ -1,12 +1,16 @@
 :root {
+  /* Default: Graph paper theme */
   --bg-primary: #000000;
   --bg-paper: #faf8f5; /* Cream paper background */
   --grid-line: #e4eff8; /* Light blue grid lines */
   --red-stamp: #ff523b; /* Stamp / Accent red-orange */
   
   --text-dark: #111111;
+  --text-body: #444444;
   --text-muted: #666666;
   --text-light: #ffffff;
+  --border-card: #d4d0c8;
+  --text-btn: #ffffff;
   
   --font-serif: var(--font-serif), Georgia, serif;
   --font-handwriting: var(--font-handwriting), "Comic Sans MS", cursive, sans-serif;
@@ -15,6 +19,34 @@
 
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html[data-theme="chalk"] {
+  --bg-primary: #080808;
+  --bg-paper: #1c1c1c; /* Chalkboard board background */
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --red-stamp: #ff6e5a; /* Brighter chalk coral */
+  
+  --text-dark: #f0f0f0;
+  --text-body: #cccccc;
+  --text-muted: #999999;
+  --text-light: #ffffff;
+  --border-card: rgba(255, 255, 255, 0.15);
+  --text-btn: #121212;
+}
+
+html[data-theme="blueprint"] {
+  --bg-primary: #020a14;
+  --bg-paper: #082142; /* Blueprint sheet background */
+  --grid-line: rgba(255, 255, 255, 0.08);
+  --red-stamp: #00e5ff; /* Blueprint cyan line */
+  
+  --text-dark: #ffffff;
+  --text-body: #d2e4f7;
+  --text-muted: #8caecf;
+  --text-light: #ffffff;
+  --border-card: rgba(255, 255, 255, 0.2);
+  --text-btn: #020c1a;
 }
 
 * {

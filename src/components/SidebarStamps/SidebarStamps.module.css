@@ -33,7 +33,7 @@
 }
 
 .stampWrapper {
-  color: #ff523b; /* Red-Orange retro stamp color */
+  color: var(--red-stamp); /* Red-Orange retro stamp color */
   opacity: 0.65;
   transition: transform 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
@@ -42,7 +42,7 @@
 .stampWrapper:hover {
   transform: rotate(5deg) scale(1.1);
   opacity: 0.95;
-  color: #ff3b20;
+  color: var(--red-stamp);
 }
 
 .stampSvg {
