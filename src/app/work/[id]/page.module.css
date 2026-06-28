@@ -1,0 +1,324 @@
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 40px auto 100px auto;
+  padding: 0 24px;
+}
+
+/* Header breadcrumbs styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.backLink {
+  font-family: var(--font-handwriting);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  transition: var(--transition-smooth);
+}
+
+.backLink:hover {
+  color: var(--red-stamp);
+  transform: translateX(-4px);
+}
+
+.stampCategory {
+  font-family: var(--font-handwriting);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--red-stamp);
+  border: 1px dashed var(--red-stamp);
+  padding: 4px 12px;
+  transform: rotate(2deg);
+  border-radius: 2px;
+}
+
+/* Hero Section */
+.heroSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed var(--border-card);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tagline {
+  font-family: var(--font-handwriting);
+  font-size: 16px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.sealBadge {
+  color: var(--red-stamp);
+  width: 76px;
+  height: 76px;
+  transform: rotate(15deg);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.sealSvg {
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Main Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-dark);
+  border-bottom: 1.5px solid var(--border-card);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.descLong, .challengesText {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+
+.featuresList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.featureItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.checkHand {
+  color: var(--red-stamp);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.featureText {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* Sidebar Tag Specs Card */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 40px;
+}
+
+.tagCard {
+  background: var(--bg-paper);
+  color: var(--text-dark);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  padding: 36px 20px 24px 20px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tagHole {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 3.5px solid #c8c4bc;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stitchedBorder {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  border: 1px dashed #bbb;
+  pointer-events: none;
+}
+
+.tagHeading {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text-dark);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+  font-family: var(--font-sans);
+}
+
+.metaLabel {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.metaValue {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.tagDivider {
+  height: 1px;
+  background: var(--border-card);
+}
+
+.subHeading {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.techBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.techBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--bg-primary);
+  color: var(--text-light);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actionBtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--text-dark);
+  font-family: var(--font-handwriting);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: var(--text-dark);
+  color: var(--bg-paper);
+}
+
+/* Tablet & Mobile Media Queries */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .sidebar {
+    position: static;
+    grid-row: 1; /* Place specs at the top on small viewports */
+  }
+
+  .tagCard {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin: 20px auto 60px auto;
+    padding: 0 16px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .sealBadge {
+    display: none; /* Hide decorative stamp seal on small viewports */
+  }
+
+  .heroSection {
+    margin-bottom: 30px;
+  }
+
+  .sectionTitle {
+    font-size: 19px;
+  }
+
+  .descLong, .challengesText, .featureText {
+    font-size: 14px;
+  }
+}

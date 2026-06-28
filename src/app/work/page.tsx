@@ -2,56 +2,9 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import styles from "./page.module.css";
-
-type Project = {
-  id: string;
-  title: string;
-  category: string;
-  desc: string;
-  tech: string[];
-  demoUrl: string;
-  codeUrl: string;
-};
-
-const PROJECTS: Project[] = [
-  {
-    id: "nighwan",
-    title: "Nighwan Tech Corporate Portal",
-    category: "Frontend Dev",
-    desc: "A high-performance corporate portal built with Next.js, TypeScript, and Tailwind CSS. Features dynamic reusable components, sitemaps, Open Graph metadata, Vercel deployments, and SEO optimizations.",
-    tech: ["Next.js", "TypeScript", "Tailwind", "Vercel", "SEO"],
-    demoUrl: "https://nighwantech.vercel.app/",
-    codeUrl: "https://github.com/Sparshtub/portfolio"
-  },
-  {
-    id: "gatirath",
-    title: "Gatirath Cab & Bus Rentals",
-    category: "Full Stack Dev",
-    desc: "A premium vehicle rental and tour booking platform built with Next.js and Tailwind CSS. Supports advanced trip forms, custom tour packages, and corporate/event travel solutions.",
-    tech: ["Next.js", "Tailwind CSS", "React.js", "Vercel"],
-    demoUrl: "https://gatirath-vert.vercel.app/",
-    codeUrl: "https://github.com/Sparshtub/portfolio"
-  },
-  {
-    id: "weather",
-    title: "Open-Meteo Weather Dashboard",
-    category: "Frontend Dev",
-    desc: "An interactive weather dashboard querying Open-Meteo API for current, hourly and historical metrics. Features interactive trend charts built with Recharts, horizontal scrolling, and custom brush-zoom selections.",
-    tech: ["React.js", "Vite", "Recharts", "Open-Meteo API", "Vercel"],
-    demoUrl: "https://weather-dashboard-six-silk.vercel.app/",
-    codeUrl: "https://github.com/Sparshtub/Weather-Dashboard"
-  },
-  {
-    id: "plants",
-    title: "VrikshVatika Plant E-Store",
-    category: "Frontend Dev",
-    desc: "A plant e-commerce concept highlighting visual storytelling, micro-interactions, responsive styling using Tailwind CSS, and client-side sorting algorithms.",
-    tech: ["React.js", "Tailwind CSS", "Context API", "Framer Motion"],
-    demoUrl: "https://github.com/Sparshtub/portfolio",
-    codeUrl: "https://github.com/Sparshtub/portfolio"
-  }
-];
+import { PROJECTS } from "./data";
 
 function WorkContent() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -159,6 +112,10 @@ function WorkContent() {
                   View Code
                 </a>
               </div>
+
+              <Link href={`/work/${activeProject.id}`} className={styles.viewCaseStudyBtn}>
+                ☞ View Case Study
+              </Link>
 
               {/* Decorative barcode stamp */}
               <div className={styles.barcode}>

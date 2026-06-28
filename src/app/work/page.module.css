@@ -219,6 +219,28 @@
   color: var(--bg-paper);
 }
 
+.viewCaseStudyBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  background: var(--red-stamp);
+  color: #ffffff !important;
+  border-radius: 2px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(255, 82, 59, 0.15);
+  display: block;
+}
+
+.viewCaseStudyBtn:hover {
+  background: #e0432f;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(255, 82, 59, 0.3);
+}
+
 /* Retro barcode stamp */
 .barcode {
   width: 100%;
