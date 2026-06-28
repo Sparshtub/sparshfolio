@@ -199,6 +199,16 @@
   }
 }
 
+@media (max-width: 380px) {
+  .navList {
+    gap: 8px;
+  }
+  .navLink {
+    font-size: 14px;
+    padding: 2px 2px;
+  }
+}
+
 /* Universal Search Button & Modal Palette */
 .searchBtn, .themeBtn {
   background: transparent;

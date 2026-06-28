@@ -96,6 +96,7 @@
 .emailContent {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .emailLabel {
@@ -112,6 +113,7 @@
   font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
+  word-break: break-all;
 }
 
 .copyBtn {
@@ -151,6 +153,7 @@
 .socialLinks {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .socialLink {
@@ -353,7 +356,12 @@
     padding: 24px 20px;
   }
   
+  .emailContainer {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  
   .emailText {
-    font-size: 13px;
+    font-size: 12px;
   }
 }

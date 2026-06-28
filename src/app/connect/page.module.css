@@ -63,6 +63,13 @@
   gap: 40px;
 }
 
+@media (max-width: 992px) {
+  .sectionsGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     margin: 20px auto 60px auto;
@@ -87,12 +94,8 @@
   .role {
     font-size: 20px;
   }
-  .sectionsGrid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
   .infoCard, .formCard {
-    padding: 20px;
+    padding: 24px;
   }
   .infoTitle, .formTitle {
     font-size: 22px;
@@ -107,6 +110,21 @@
     font-size: 18px;
   }
   .detailText {
+    font-size: 13px;
+  }
+  .infoCard, .formCard {
+    padding: 16px;
+    gap: 20px;
+  }
+  .detailContainer {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .socialLinks {
+    gap: 8px;
+  }
+  .socialLink {
+    padding: 6px 12px;
     font-size: 13px;
   }
 }
@@ -176,6 +194,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  min-width: 0;
 }
 
 .detailLabel {
@@ -192,6 +211,7 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--text-dark);
+  word-break: break-all;
 }
 
 .copyBtn {
@@ -234,6 +254,7 @@
 .socialLinks {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .socialLink {
